@@ -4,15 +4,14 @@ import io.cucumber.java.en.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pageObjects.LoginPage;
+import hooks.Hooks;
 
 public class LoginSteps {
-    WebDriver driver;
     LoginPage loginPage;
 
     @Given("user is on login page")
     public void userIsOnLoginPage() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        WebDriver driver = Hooks.driver;  // ambil driver langsung dari Hooks
         driver.get("https://the-internet.herokuapp.com/login");
         loginPage = new LoginPage(driver);
     }
@@ -32,6 +31,5 @@ public class LoginSteps {
         } else {
             System.out.println("❌ Login gagal!");
         }
-        driver.quit();
     }
 }

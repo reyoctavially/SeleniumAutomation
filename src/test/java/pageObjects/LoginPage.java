@@ -1,32 +1,27 @@
 package pageObjects;
-import org.openqa.selenium.By;
+import locators.Locators;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPage {
+public class LoginPage implements Locators {
     WebDriver driver;
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    By usernameField = By.id("username");
-    By passwordField = By.id("password");
-    By loginButton   = By.cssSelector("button[type='submit']");
-    By flashMessage  = By.id("flash");
-
     public void enterUsername(String username) {
-        driver.findElement(usernameField).sendKeys(username);
+        driver.findElement(USERNAME_FIELD).sendKeys(username);
     }
 
     public void enterPassword(String password) {
-        driver.findElement(passwordField).sendKeys(password);
+        driver.findElement(PASSWORD_FIELD).sendKeys(password);
     }
 
     public void clickLogin() {
-        driver.findElement(loginButton).click();
+        driver.findElement(LOGIN_BUTTON).click();
     }
 
     public String getFlashMessage() {
-        return driver.findElement(flashMessage).getText();
+        return driver.findElement(FLASH_MESSAGE).getText();
     }
 }
