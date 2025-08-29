@@ -1,21 +1,20 @@
 package stepDefinitions;
 
-import io.cucumber.java.PendingException;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pageObjects.loginPage;
+import pageObjects.LoginPage;
 
-public class loginSteps {
+public class LoginSteps {
     WebDriver driver;
-    loginPage loginPage;
+    LoginPage loginPage;
 
     @Given("user is on login page")
     public void userIsOnLoginPage() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://the-internet.herokuapp.com/login");
-        loginPage = new loginPage(driver);
+        loginPage = new LoginPage(driver);
     }
 
     @When("user enters valid username and password")
