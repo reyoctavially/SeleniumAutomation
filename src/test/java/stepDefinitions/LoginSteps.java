@@ -4,6 +4,7 @@ import io.cucumber.java.en.*;
 import org.openqa.selenium.WebDriver;
 import pageObjects.LoginPage;
 import utils.DriverFactory;
+import utils.ConfigReader;
 
 public class LoginSteps {
     WebDriver driver;
@@ -12,7 +13,7 @@ public class LoginSteps {
     @Given("user is on login page")
     public void userIsOnLoginPage() {
         driver = DriverFactory.getDriver(); // ✅ ambil dari DriverFactory
-        driver.get("https://the-internet.herokuapp.com/login");
+        driver.get(ConfigReader.getBaseUrl() + "/login");
         loginPage = new LoginPage(driver);
     }
 
