@@ -24,6 +24,12 @@ dependencies {
     // JUnit
     testImplementation 'junit:junit:4.13.2'
 
+    // Web Driver
+    testImplementation 'io.github.bonigarcia:webdrivermanager:5.9.2'
+
+    // SLF4J
+    testImplementation 'org.slf4j:slf4j-simple:2.0.13'
+
 }
 
 test {

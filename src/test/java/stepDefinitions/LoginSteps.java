@@ -2,16 +2,16 @@ package stepDefinitions;
 
 import io.cucumber.java.en.*;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import pageObjects.LoginPage;
-import hooks.Hooks;
+import utils.DriverFactory;
 
 public class LoginSteps {
+    WebDriver driver;
     LoginPage loginPage;
 
     @Given("user is on login page")
     public void userIsOnLoginPage() {
-        WebDriver driver = Hooks.driver;  // ambil driver langsung dari Hooks
+        driver = DriverFactory.getDriver(); // ✅ ambil dari DriverFactory
         driver.get("https://the-internet.herokuapp.com/login");
         loginPage = new LoginPage(driver);
     }

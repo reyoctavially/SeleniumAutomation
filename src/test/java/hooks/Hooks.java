@@ -5,20 +5,18 @@ import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import utils.DriverFactory;
 
 public class Hooks {
-    public static WebDriver driver;
 
     @Before
     public void setUp() {
-        System.out.println(">> Starting browser");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        DriverFactory.getDriver();
     }
 
     @After
     public void tearDown(Scenario scenario) {
+        WebDriver driver = DriverFactory.getDriver();
         System.out.println(">> Closing browser");
 
         if (scenario.isFailed()) {
@@ -32,9 +30,6 @@ public class Hooks {
                 System.out.println(">> Failed to capture screenshot: " + e.getMessage());
             }
         }
-
-        if (driver != null) {
-            driver.quit();
-        }
+        DriverFactory.quitDriver();
     }
 }
