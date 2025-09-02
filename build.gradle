@@ -21,6 +21,9 @@ dependencies {
     testImplementation 'io.cucumber:cucumber-java:7.18.1'
     testImplementation 'io.cucumber:cucumber-junit:7.18.1'
 
+    // Cucumber Reporting
+    testImplementation 'net.masterthought:cucumber-reporting:5.7.8'
+
     // JUnit
     testImplementation 'junit:junit:4.13.2'
 
