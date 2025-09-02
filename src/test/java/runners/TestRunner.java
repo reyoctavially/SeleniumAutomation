@@ -7,6 +7,7 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/resources/features",   // lokasi feature
+        tags = "@login", // tags yang akan di run
         glue = {"stepDefinitions", "hooks"},        // lokasi steps & hooks
         plugin = {
                 "pretty",                               // console log lebih jelas
