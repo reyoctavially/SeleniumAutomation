@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import io.cucumber.java.PendingException;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.WebDriver;
 import pageObjects.LoginPage;
@@ -17,10 +18,10 @@ public class LoginSteps {
         loginPage = new LoginPage(driver);
     }
 
-    @When("user enters valid username and password")
-    public void userEntersValidUsernameAndPassword() {
-        loginPage.enterUsername("tomsmith");
-        loginPage.enterPassword("SuperSecretPassword!");
+    @When("user enters valid {string} and {string}")
+    public void userEntersValidUsernameAndPassword(String username, String password) {
+        loginPage.enterUsername(username);
+        loginPage.enterPassword(password);
         loginPage.clickLogin();
     }
 
