@@ -1,8 +1,8 @@
 package pageObjects;
-import locators.Locators;
+import locators.LoginPageLocators;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPage implements Locators {
+public class LoginPage implements LoginPageLocators {
     WebDriver driver;
 
     public LoginPage(WebDriver driver) {
